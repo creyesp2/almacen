@@ -6,6 +6,10 @@
 package com.carlosreyes.almacen.core.model;
 
 import java.io.Serializable;
+import javafx.beans.property.SimpleLongProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.LongProperty;
+import javafx.beans.property.StringProperty;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,93 +23,113 @@ import javax.persistence.Table;
 @Table(name = "proveedor")
 @NamedQueries(
         {
-        @NamedQuery(name="Provedor.findAll",query="select p from Proveedor")
+        @NamedQuery(name="Proveedor.findAll",query="select p from Proveedor p")
         }
 
 )
-
-
-
 /**
  *
  * @author programacion
  */
 public class Proveedor implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)//solo primary key autoincrementable
-    @Column(name = "codigo_proveedor")
-    private Long codigoProveedor;
-
-    @Column(name = "nit")
-    private String nit;
-    @Column(name = "razon_social")
-    private String razonSocial;
-    @Column(name = "direccion")
-    private String direccion;
-    @Column(name = "pagina_web")
-    private String paginaWeb;
-    @Column(name = "contacto_principal")
-    private String contactoPrincipal;
+   private final LongProperty codigoProveedor;
+   private final StringProperty nit;
+   private final StringProperty razonSocial;
+   private final StringProperty direccion;
+   private final StringProperty paginaWeb;
+   private final StringProperty contactoPrincipal;
 
     public Proveedor() {
+        this.codigoProveedor = new SimpleLongProperty();
+        this.nit = new SimpleStringProperty();
+        this.razonSocial = new SimpleStringProperty();
+        this.direccion = new SimpleStringProperty();
+        this.paginaWeb = new SimpleStringProperty();
+        this.contactoPrincipal = new SimpleStringProperty();        
     }
 
     public Proveedor(Long codigoProveedor, String nit, String razonSocial, String direccion, String paginaWeb, String contactoPrincipal) {
-        this.codigoProveedor = codigoProveedor;
-        this.nit = nit;
-        this.razonSocial = razonSocial;
-        this.direccion = direccion;
-        this.paginaWeb = paginaWeb;
-        this.contactoPrincipal = contactoPrincipal;
+        this.codigoProveedor = new SimpleLongProperty(codigoProveedor);
+        this.nit = new SimpleStringProperty(nit);
+        this.razonSocial = new SimpleStringProperty(razonSocial);
+        this.direccion = new SimpleStringProperty(direccion);
+        this.paginaWeb = new SimpleStringProperty(paginaWeb);
+        this.contactoPrincipal = new SimpleStringProperty(contactoPrincipal);
     }
-
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//solo primary key autoincrementable
+    @Column(name = "codigo_proveedor")
     public Long getCodigoProveedor() {
-        return codigoProveedor;
+        return codigoProveedor.getValue();
     }
 
     public void setCodigoProveedor(Long codigoProveedor) {
-        this.codigoProveedor = codigoProveedor;
+        this.codigoProveedor.set(codigoProveedor);
     }
-
+    
+    public LongProperty codigoProveedor(){
+        return this.codigoProveedor;
+    }
+    
+    @Column(name = "nit")
     public String getNit() {
-        return nit;
+        return nit.get();
     }
 
     public void setNit(String nit) {
-        this.nit = nit;
+        this.nit.set(nit);
     }
-
+    
+    public StringProperty nit(){
+        return this.nit;
+    }
+    
+    @Column(name = "razon_social")
     public String getRazonSocial() {
-        return razonSocial;
+        return razonSocial.get();
     }
 
     public void setRazonSocial(String razonSocial) {
-        this.razonSocial = razonSocial;
+        this.razonSocial.set(razonSocial);
     }
-
+    public StringProperty razonSocial(){
+        return this.razonSocial;
+    }
+    @Column(name = "direccion")
     public String getDireccion() {
-        return direccion;
+        return direccion.get();
     }
 
     public void setDireccion(String direccion) {
-        this.direccion = direccion;
+        this.direccion.set(direccion);
     }
-
+    
+    public StringProperty direccion(){
+        return this.direccion;
+    }
+  @Column(name = "pagina_web")
     public String getPaginaWeb() {
-        return paginaWeb;
+        return paginaWeb.get();
     }
 
     public void setPaginaWeb(String paginaWeb) {
-        this.paginaWeb = paginaWeb;
+        this.paginaWeb.set(paginaWeb);
     }
-
+public StringProperty paginaWeb(){
+        return this.paginaWeb;
+    }
+    @Column(name = "contacto_principal")
     public String getContactoPrincipal() {
-        return contactoPrincipal;
+        return contactoPrincipal.get();
     }
 
     public void setContactoPrincipal(String contactoPrincipal) {
-        this.contactoPrincipal = contactoPrincipal;
+        this.contactoPrincipal.set(contactoPrincipal);
+    }
+    
+    public StringProperty   contactoPrincipal(){
+        return this.contactoPrincipal;
     }
 
 }

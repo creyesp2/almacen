@@ -5,7 +5,7 @@
  */
 package com.carlosreyes.almacen.core.dao;
 
-import com.carlosreyes.alamcen.core.db.Conexion;
+import com.carlosreyes.almacen.core.db.Conexion;
 import com.carlosreyes.almacen.core.model.Proveedor;
 import java.util.List;
 

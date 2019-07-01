@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author programacion
  */
-public class ProveedorServiceImpl implements ProveedoService {
+public class ProveedorServiceImpl implements ProveedorService {
 
     private ProveedorDao proveedorDao = new ProveedorDaoImpl();
 

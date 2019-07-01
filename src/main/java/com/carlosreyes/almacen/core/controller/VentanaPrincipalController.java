@@ -1,6 +1,6 @@
 package com.carlosreyes.almacen.core.controller;
 
-import com.creyes.almacem.almacen.core.sistema.Principal;
+import com.carlosreyes.almacen.core.sistema.Principal;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -34,4 +34,16 @@ public class VentanaPrincipalController implements Initializable {
     this.principal.mostrarVentanaProveedores();
     
     }
+    
+      public void mostrarVentanaClientes() throws IOException {
+         this.principal.mostrarVentanaClientes();
+    }
+
+      public void mostrarVentanaTipoEmpaque()throws IOException{
+         this.principal.mostrarVentanaTipoEmpaque();
+      }
+    
+       public void mostrarVentanaCategoria()throws IOException{
+         this.principal.mostrarVentanaCategoria();
+      }
 }
